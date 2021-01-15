@@ -74,8 +74,11 @@ class TotalViewController: UIViewController, UITableViewDelegate, UITableViewDat
         mealArray.append(meal)
         CalArray.append(cal)
         let sum = CalArray.reduce(0, +)
-    
-      totalCaloriesNumber?.text = "\(sum)"
+        
+    print(sum)
+        DispatchQueue.main.async { [self] in
+            totalCaloriesNumber?.text = "\(sum)"
+        }
         self.tableView?.reloadData()
         print(String(sum))
         print(totalCaloriesNumber?.text!)

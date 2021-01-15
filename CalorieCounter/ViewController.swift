@@ -96,7 +96,8 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTotal" {
             let destinationVC = segue.destination as! TotalViewController
-            
+            print(Float(caloriesNumber.text!)!)
+            print("l")
             destinationVC.addData(meal: dropDown.text!, cal: Float(caloriesNumber.text!)!)
 //            destinationVC.tableView?.reloadData()
             
