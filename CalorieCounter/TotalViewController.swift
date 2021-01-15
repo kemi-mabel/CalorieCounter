@@ -10,6 +10,7 @@ import UIKit
 
 var mealArray : [String] = []
 var CalArray : [Float] = []
+var sum : Float = 0.0
 
 
 //var mealCalDic : [String : String] = [:]
@@ -29,7 +30,7 @@ class TotalViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dailyGoal: UILabel!
     
-    @IBAction func dailyGoalNum(_ sender: Any) {
+    @IBAction func dailyGoalNum(_ sender: UITextView) {
     }
     @IBOutlet weak var cal: UILabel!
     @IBOutlet weak var totalCalories: UILabel!
@@ -41,7 +42,7 @@ class TotalViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CalArray.count
-//        return mealCalDic.count
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,31 +61,31 @@ class TotalViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            
+//           ???
+//            DispatchQueue.main.async { [self] in
+//
+//                totalCaloriesNumber.text = "\(sum - (CalArray[indexPath.row]))"
+//            }
             mealArray.remove(at: indexPath.row)
             CalArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             tableView.endUpdates()
-
+            
+            self.tableView?.reloadData()
         }
     }
     
     func addData(meal: String, cal: Float){
         mealArray.append(meal)
         CalArray.append(cal)
-        let sum = CalArray.reduce(0, +)
-        
-    print(sum)
+        sum = CalArray.reduce(0, +)
+
         DispatchQueue.main.async { [self] in
             totalCaloriesNumber?.text = "\(sum)"
+//          ???  remainingCalNum.text = Float(dailyGoalNum.text) - totalCaloriesNumber
         }
         self.tableView?.reloadData()
-        print(String(sum))
-        print(totalCaloriesNumber?.text!)
-//        print(mealArray)
-//        self.tableView?.reloadData()
-        
     }
     
 }
