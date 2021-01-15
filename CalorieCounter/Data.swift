@@ -9,12 +9,12 @@ import Foundation
 class MealModel {
     
     var meal = ""
-    var sizenumber = ""
-    var caloriesnumber = ""
+    var sizenumber: Double = 0
+    var caloriesnumber: Float = 0.0
     var portionsize = ""
     var backgroundImage = ""
     
-    init(meal: String, sizenumber: String, caloriesnumber: String, portionsize: String, backgroundImage: String) {
+    init(meal: String, sizenumber: Double, caloriesnumber: Float, portionsize: String, backgroundImage: String) {
         self.meal = meal
         self.sizenumber = sizenumber
         self.caloriesnumber = caloriesnumber
