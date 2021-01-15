@@ -34,11 +34,12 @@ class ViewController: UIViewController {
 //        delegate?.mealdata(meal: dropDown.text!, calories: caloriesNumber.text!)
 //        self.performSegue(withIdentifier: "goToTotal", sender: self)
     }
+    
     @IBAction func stepperAction(_ sender: UIStepper) {
         numberLabel.text = String(sender.value)
         
         let doublenumberlabel = Double(sender.value)
-        doublesizenumber = Double(sizeNumber.text!)!
+//        doublesizenumber = Double(sizeNumber.text!)!
         
         let mulsizenumber = doublenumberlabel * doublesizenumber
         sizeNumber.text = "\(mulsizenumber)"
@@ -86,6 +87,7 @@ class ViewController: UIViewController {
         ///modifying the UI on the main thread
         DispatchQueue.main.async { [self] in
             sizeNumber.text = "\(singleMealModel.sizenumber)"
+            doublesizenumber = singleMealModel.sizenumber
             caloriesNumber.text = "\(singleMealModel.caloriesnumber)"
             portionSize.text = singleMealModel.portionsize
             backgroundImage.image = UIImage(named: singleMealModel.backgroundImage)
@@ -94,7 +96,8 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTotal" {
             let destinationVC = segue.destination as! TotalViewController
-            
+            print(Float(caloriesNumber.text!)!)
+            print("l")
             destinationVC.addData(meal: dropDown.text!, cal: Float(caloriesNumber.text!)!)
 //            destinationVC.tableView?.reloadData()
             
