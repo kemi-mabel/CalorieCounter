@@ -34,11 +34,12 @@ class ViewController: UIViewController {
 //        delegate?.mealdata(meal: dropDown.text!, calories: caloriesNumber.text!)
 //        self.performSegue(withIdentifier: "goToTotal", sender: self)
     }
+    
     @IBAction func stepperAction(_ sender: UIStepper) {
         numberLabel.text = String(sender.value)
         
         let doublenumberlabel = Double(sender.value)
-        doublesizenumber = Double(sizeNumber.text!)!
+//        doublesizenumber = Double(sizeNumber.text!)!
         
         let mulsizenumber = doublenumberlabel * doublesizenumber
         sizeNumber.text = "\(mulsizenumber)"
@@ -86,6 +87,7 @@ class ViewController: UIViewController {
         ///modifying the UI on the main thread
         DispatchQueue.main.async { [self] in
             sizeNumber.text = "\(singleMealModel.sizenumber)"
+            doublesizenumber = singleMealModel.sizenumber
             caloriesNumber.text = "\(singleMealModel.caloriesnumber)"
             portionSize.text = singleMealModel.portionsize
             backgroundImage.image = UIImage(named: singleMealModel.backgroundImage)
