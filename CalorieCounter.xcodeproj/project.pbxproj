@@ -10,6 +10,10 @@
 		3872A3EB1FB06B7FB29B904E /* Pods_CalorieCounter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FC48B3DBEA22D810497017 /* Pods_CalorieCounter.framework */; };
 		5E00A96D25A4DA1000A6D440 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E00A96C25A4DA0F00A6D440 /* iOSDropDown.framework */; };
 		5E8F84FA25A50C650044C11F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8F84F925A50C650044C11F /* Data.swift */; };
+		5EA0754D25AF978900FB3BB2 /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0754C25AF978900FB3BB2 /* TotalViewController.swift */; };
+		5EA0755225AFA2C200FB3BB2 /* Total.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0755125AFA2C100FB3BB2 /* Total.swift */; };
+		5EA0755725AFA33200FB3BB2 /* TotalCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0755625AFA33200FB3BB2 /* TotalCalculator.swift */; };
+		5EA0756A25B0821F00FB3BB2 /* TotalViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0756925B0821F00FB3BB2 /* TotalViewCell.swift */; };
 		5EAE98792579963D0026B3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE98782579963D0026B3EA /* AppDelegate.swift */; };
 		5EAE987B2579963D0026B3EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE987A2579963D0026B3EA /* SceneDelegate.swift */; };
 		5EAE987D2579963D0026B3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE987C2579963D0026B3EA /* ViewController.swift */; };
@@ -46,6 +50,10 @@
 		58B46375CBBDF400765C0C84 /* Pods-CalorieCounter-CalorieCounterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalorieCounter-CalorieCounterUITests.debug.xcconfig"; path = "Target Support Files/Pods-CalorieCounter-CalorieCounterUITests/Pods-CalorieCounter-CalorieCounterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E00A96C25A4DA0F00A6D440 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E8F84F925A50C650044C11F /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		5EA0754C25AF978900FB3BB2 /* TotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
+		5EA0755125AFA2C100FB3BB2 /* Total.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Total.swift; sourceTree = "<group>"; };
+		5EA0755625AFA33200FB3BB2 /* TotalCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCalculator.swift; sourceTree = "<group>"; };
+		5EA0756925B0821F00FB3BB2 /* TotalViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewCell.swift; sourceTree = "<group>"; };
 		5EAE98752579963D0026B3EA /* CalorieCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EAE98782579963D0026B3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EAE987A2579963D0026B3EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,8 +156,12 @@
 				5EAE98782579963D0026B3EA /* AppDelegate.swift */,
 				5EAE987A2579963D0026B3EA /* SceneDelegate.swift */,
 				5E8F84F925A50C650044C11F /* Data.swift */,
+				5EA0755125AFA2C100FB3BB2 /* Total.swift */,
+				5EA0755625AFA33200FB3BB2 /* TotalCalculator.swift */,
 				5EAE987E2579963D0026B3EA /* Main.storyboard */,
 				5EAE987C2579963D0026B3EA /* ViewController.swift */,
+				5EA0754C25AF978900FB3BB2 /* TotalViewController.swift */,
+				5EA0756925B0821F00FB3BB2 /* TotalViewCell.swift */,
 				5EAE9881257996430026B3EA /* Assets.xcassets */,
 				5EAE9883257996430026B3EA /* LaunchScreen.storyboard */,
 				5EAE9886257996430026B3EA /* Info.plist */,
@@ -413,9 +425,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EA0755225AFA2C200FB3BB2 /* Total.swift in Sources */,
 				5EAE987D2579963D0026B3EA /* ViewController.swift in Sources */,
+				5EA0755725AFA33200FB3BB2 /* TotalCalculator.swift in Sources */,
 				5E8F84FA25A50C650044C11F /* Data.swift in Sources */,
 				5EAE98792579963D0026B3EA /* AppDelegate.swift in Sources */,
+				5EA0756A25B0821F00FB3BB2 /* TotalViewCell.swift in Sources */,
+				5EA0754D25AF978900FB3BB2 /* TotalViewController.swift in Sources */,
 				5EAE987B2579963D0026B3EA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
