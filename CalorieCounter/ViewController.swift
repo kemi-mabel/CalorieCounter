@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     //IBOUTLETS
     var doublesizenumber: Double = 0
-//    var delegate : FoodCal?
+    var doublecalnumber: Double = 0
+
     
     @IBOutlet weak var backgroundImage: UIImageView!
    
@@ -30,9 +31,7 @@ class ViewController: UIViewController {
     
     @IBAction func addmealbutton(_ sender: Any) {
 //        let calorie = caloriesNumber.text
-//     
-//        delegate?.mealdata(meal: dropDown.text!, calories: caloriesNumber.text!)
-//        self.performSegue(withIdentifier: "goToTotal", sender: self)
+        
     }
     
     @IBAction func stepperAction(_ sender: UIStepper) {
@@ -42,7 +41,9 @@ class ViewController: UIViewController {
 //        doublesizenumber = Double(sizeNumber.text!)!
         
         let mulsizenumber = doublenumberlabel * doublesizenumber
+        let mulcalnumber = doublenumberlabel * doublecalnumber
         sizeNumber.text = "\(mulsizenumber)"
+        caloriesNumber.text = "\(mulcalnumber)"
         
     }
     
@@ -88,7 +89,7 @@ class ViewController: UIViewController {
         DispatchQueue.main.async { [self] in
             sizeNumber.text = "\(singleMealModel.sizenumber)"
             doublesizenumber = singleMealModel.sizenumber
-            caloriesNumber.text = "\(singleMealModel.caloriesnumber)"
+            doublecalnumber = Double(singleMealModel.caloriesnumber)
             portionSize.text = singleMealModel.portionsize
             backgroundImage.image = UIImage(named: singleMealModel.backgroundImage)
         }
