@@ -31,7 +31,22 @@ class ViewController: UIViewController {
     
     @IBAction func addmealbutton(_ sender: Any) {
 //        let calorie = caloriesNumber.text
-        
+        if dropDown.text == "" {
+            // Alert
+            let optionMenu = UIAlertController(title: nil, message: "Please Select Meal", preferredStyle: .alert)
+
+            // Add actions to the menu
+            let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler:
+                        nil)
+            optionMenu.addAction(cancelAction)
+
+                    // Display the menu
+            shouldPerformSegue(withIdentifier: "goToTotal", sender: Any?.self)
+            self.present(optionMenu, animated: true, completion: nil)
+        }
+        else {
+            
+        }
     }
     
     @IBAction func stepperAction(_ sender: UIStepper) {
@@ -68,7 +83,6 @@ class ViewController: UIViewController {
             ///this is where I'm calling the method that modifies the UI
             self.modifyOnDropDownSelect(id: id)
             
-            
 //            print("Selected String: \(selectedText) \n index: \(index)")
 //            self.dropDown.text = "Selected String: \(selectedText) \n index: \(index)"
     }
@@ -89,25 +103,21 @@ class ViewController: UIViewController {
         DispatchQueue.main.async { [self] in
             sizeNumber.text = "\(singleMealModel.sizenumber)"
             doublesizenumber = singleMealModel.sizenumber
+            caloriesNumber.text = "\(singleMealModel.caloriesnumber)"
             doublecalnumber = Double(singleMealModel.caloriesnumber)
             portionSize.text = singleMealModel.portionsize
             backgroundImage.image = UIImage(named: singleMealModel.backgroundImage)
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToTotal" {
+        if segue.identifier == "goToTotal" && dropDown.text != "" {
             let destinationVC = segue.destination as! TotalViewController
-            print(Float(caloriesNumber.text!)!)
-            print("l")
             destinationVC.addData(meal: dropDown.text!, cal: Float(caloriesNumber.text!)!)
-//            destinationVC.tableView?.reloadData()
-            
+            destinationVC.tableView?.reloadData()
+
         }
-    }
-//    func addMeal(){
-//        let totalCaloriesNumber.text = 0
-//        let sum = caloriesNumber + totalCaloriesNumber
-//
-//    }
+        }
+    
+
 }
 
