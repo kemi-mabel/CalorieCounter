@@ -8,14 +8,16 @@
 import UIKit
 
 
-var mealArray : [String] = []
-var CalArray : [Float] = []
-var sum : Float = 0.0
-
 
 //var mealCalDic : [String : String] = [:]
 
 class TotalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    var mealArray : [String] = []
+    var CalArray : [Float] = []
+    var sum : Float = 0.0
+
+
 //    var floatcal : [Float] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,10 +64,12 @@ class TotalViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if editingStyle == .delete {
             tableView.beginUpdates()
 //           ???
-//            DispatchQueue.main.async { [self] in
-//
-//                totalCaloriesNumber.text = "\(sum - (CalArray[indexPath.row]))"
-//            }
+            let k = CalArray[indexPath.row]
+            DispatchQueue.main.async { [self] in
+                print(sum - k)
+                totalCaloriesNumber.text = "\(sum - k)"
+
+            }
             mealArray.remove(at: indexPath.row)
             CalArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -83,9 +87,9 @@ class TotalViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         DispatchQueue.main.async { [self] in
             totalCaloriesNumber?.text = "\(sum)"
-            var intDailyGoal = Int(dailyGoalNum.text)
+            var intDailyGoal = 1
             var intTotalCalNum = Int(totalCaloriesNumber.text!)
-            remainingCalNum.text = intDailyGoal - intTotalCalNum
+            remainingCalNum.text = "intDailyGoal - intTotalCalNum"
         }
         self.tableView?.reloadData()
     }
