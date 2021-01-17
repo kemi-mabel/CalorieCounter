@@ -87,7 +87,9 @@ class TotalViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         DispatchQueue.main.async { [self] in
             totalCaloriesNumber?.text = "\(sum)"
-//          ???  remainingCalNum.text = Float(dailyGoalNum.text) - totalCaloriesNumber
+            var intDailyGoal = Int(dailyGoalNum.text)
+            var intTotalCalNum = Int(totalCaloriesNumber.text!)
+            remainingCalNum.text = intDailyGoal - intTotalCalNum
         }
         self.tableView?.reloadData()
     }
